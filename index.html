@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Modern Programming for Data Analytics - Intro to Python</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/solarized.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+		<link rel-"stylesheet" href="plugin/asciinema/asciinema-player.css">
+
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="titleSlide">
+					<h2> Modern Programming for Data Analytics - Very Brief Intro to Python </h2>
+					<h4> Instructor: Shawn T. Brown </h4>
+				</section>
+				<section>
+					<h3> Python: </h3>
+					<ul class="r-fit-text">
+					 <li> is an interpreted high-level general-purpose programming language.
+					 <li> is an indented language that promotes highly readable programming.
+					 <li> supports both object-oriented programming and procedural progamming models.
+					 <li> has a massive community level of support with a plethora of modules to add a wide-array of functionality
+					 <li> the most widely used programming language (31.47% according to PYPL)
+					</ul>
+				</section>
+				<section>
+						<h3>Python in scientific programming</h3>
+						<ul class="r-fit-text">
+							<li> Python was widely thought to not be high-performance
+								<ul>
+									<li> modules such as Numpy, SciPy, and Pandas have ensured that Python is a high-performance language
+								</ul>
+							<li> Python is by far the language of choice for Artificial Intelligence applications
+								<ul>
+									<li> Frameworks such as TensorFlow, PyTorch, and Caffe are all Python frameworks
+								</ul>
+							<li> Most scientific applications and data frameworks, while maybe not written in Python provide robust Python interfaces for data and procedural workflows
+						</ul>
+				</section>
+				<section>
+					<section>
+						<h3> Installing and Using Python </h3>
+						<p class="r-fit-text">
+							In this section we will go through some of the Python packages available, environment and package control, and interactive Python frameworks.
+						</p>
+					</section>
+					<section>
+						<h3> A word about Python versions.... </h3>
+						<div style="float:left; width: 40%">
+								<ul class="r-fit-text">
+									<li>There are two major overarching versions of Python in circulation, Version 2.x and 3.x.
+									<li>These two versions are generally not compatible, and have multiple syntax and functional differences.
+								</ul>
+						</div>
+						<div style="float:right; width:40%">
+								<img src="static/images/python-2-vs-3-2018.png" height=100%>
+						</div>
+					</section>
+					<section>
+						<h3> Common Python Istallations </h3>
+						<ul class="r-fit-text">
+							<li>All Linux distributions come with Python initially installed as part of the operating system
+								<ul>
+									<li>Generally, this is now Python version 3.x
+								</ul>
+							<div class="r-stack">
+								<div class="fragment fade-out" data-fragment-index="0">
+									<p class="r-fit-text">
+										If you would like to install Python3 on Ubuntu
+									</p>
+									<pre>
+										<code class="language-plaintext">
+										apt-get install python3.7
+									</code>
+									</pre>
+								</div>
+								<div class="fragment current-visible" data-fragment-index="0">
+									<p class="r-fit-text">
+									If you would like to install Python3 on Centos
+									</p>
+									<pre>
+										<code class="language-plaintext">
+										yum install python3.7
+									</code>
+									</pre>
+								</div>
+								<div class="fragment">
+									<p class="r-fit-text">
+									To find out if and what version of Python is installed:
+									</p>
+									<pre>
+										<code class="language-plaintext">
+									 	> which python
+										/usr/bin/python
+										> python --version
+										Python 3.7.6
+									</code>
+									</pre>
+								</div>
+							</div>
+						</section>
+						<section>
+							<h3>Anaconda Python - A Complete, Comprehensive Python Solution</h3>
+							<ul class="r-fit-text">
+								<li> Available on Linux, Windows, and OSX
+								<li> Easy installable package for download
+									<ul>
+										<li><a href="https://www.anaconda.com/products/individual" target="_blank">
+											https://www.anaconda.com/products/individual
+										</a>
+									</ul>
+									<li> Includes full package management and commonly used, optimized node_modules
+								</ul>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h3>
+								Running Python
+							</h3>
+							<p class="r-fit-text">
+								There are several ways that you can execute Python programs
+							</p>
+						</section>
+						<section>
+							<h3>
+								Running Python Interactively
+							</h3>
+							<asciinema-player src="static/scripts/python.json"></asciinema-player>
+					</section>
+			</div>
+		</div>
+		<script src="dist/reveal.js"></script>
+		<script src="static/scripts/head.min.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/asciinema/asciinema-player.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(); }},
+					//{src: 'plugin/reveal-asciinema/asciinema-player.js'},
+				],
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
