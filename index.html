@@ -179,6 +179,197 @@
 							</ul>
 						</section>
 					</section>
+					<section>
+						<section>
+							<h3>Python Modules</h3>
+							<p class="r-fit-text">
+								Python comes with a large community of modules that are enhance the functionality
+							</p>
+							<p class="r-fit-text">
+								Here we will introduce a few popular modules and how to use them.
+							</p>
+						</section>
+						<section>
+							<h3> Including a Module </h3>
+							<p> To include a module in your code: </p>
+							<div class="r-stack">
+								<div class="fragment fade-out" data-fragment-index="0">
+									<p>
+										Add the entire module ot your software
+									</p>
+									<pre>
+										<code class="language-plaintext">
+      import numpy
+      x = numpy.zeros(100)
+									</code>
+									</pre>
+								</div>
+								<div class="fragment current-visible" data-fragment-index="0">
+									<p>
+									To add the module and give it an alias
+									</p>
+									<pre>
+										<code class="language-plaintext">
+      import numpy as np
+      x = np.zeros(100)
+									</code>
+									</pre>
+								</div>
+								<div class="fragment">
+									<p>
+									To only include a function or class from a module
+									</p>
+									<pre>
+										<code class="language-plaintext">
+      from numpy import zeros
+      x = zeros(100)
+									</code>
+									</pre>
+								</div>
+							</div>
+						</section>
+						<section>
+							<h3>
+								Basic helpful Python Modules
+							</h3>
+							<ul class="r-fit-text">
+								<li>
+									<a href="https://docs.python.org/3/library/os.html" target="_blank">
+										os
+									</a> - Miscellaneous operating system interfaces
+								</li>
+								<li>
+									<a href="https://docs.python.org/3/library/os.path.html" target="_blank">
+										os.path
+									</a> - Common pathname manipulations
+								</li>
+								<li>
+									<a href="https://docs.python.org/3/library/sys.html" target="_blank">
+										sys
+									</a> - System-specific parameters and functions
+								</li>
+								<li>
+									<a href="https://docs.python.org/3/library/time.html" target="_blank">
+										time
+									</a> - Time access and conversions
+								</li>
+								<li>
+									<a href="https://docs.python.org/3/library/datetime.html" target="_blank">
+										datetime
+									</a> - Basic date and time types
+								</li>
+								<li>
+									<a href="https://docs.python.org/3/library/pickle.html" target="_blank">
+										pickle
+									</a> - Python object serialization
+								</li>
+								<li>
+									<a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">
+										multiprocessing
+									</a> - Process-based parallelism
+								</li>
+							</ul>
+						</section>
+						<section>
+							<h3> Numerical Processing Modules</h3>
+							<p>
+								(we will go into more detail later in the course)
+							</p>
+							<ul class="r-fit-text">
+								<li>
+									<a href="https://numpy.org/" target="_blank">
+										NumPy
+									</a> - A fundemintal package for scientific computing with Python
+								</li>
+								<li>
+									<a href="https://www.scipy.org/" target="_blank">
+										SciPy
+									</a> - An collection of open source software for scientific computing in Python
+								</li>
+								<li>
+									<a href="https://pandas.pydata.org/" target="_blank">
+										Pandas
+									</a> - a fast, powerful, flexible and easy to use open source data analysis and manipulation tool.
+								</li>
+							</ul>
+						</section>
+						<section>
+							<h3> Visualization Modules </h3>
+							<p>
+								Here are some modules that will be useful for visualizing data
+							</p>
+							<ul class="r-fit-text">
+								<li>
+									<a href="https://matplotlib.org/" target="_blank">
+										matplotlib
+									</a> - A data tool for creating static, animated, and interactive visualizations
+								</li>
+								<li>
+									<a href="https://plotly.com/python/" target="_blank">
+										plotly (Open Source Version)
+									</a> - A graphing library for making publication-quality graphics
+								</li>
+								<li>
+									<a href="http://https://seaborn.pydata.org/" target="_blank">
+										seaborn
+									</a> - Statistical Data visualization
+								</li>
+								<li>
+									<a href="https://bokeh.org/" target="_blank">
+										bokeh
+									</a> - A viusaliztion library for bliding powerful interactive data applications
+								</li>
+							</ul>
+						</section>
+						<section>
+							<h3> Other Powerful Modules </h3>
+							<p> Here are a few more modules that are fairly useful for you to know about </p>
+							<ul class="r-fit-text">
+								<li>
+									<a href="https://docs.python-requests.org/en/master/" target="_blank">
+										Requests
+									</a> - HTTP requests for Humans
+								</li>
+								<li>
+									<a href="https://docs.python.org/3/library/zipfile.html" target="_blank">
+										zipfile
+									</a> - module for working directly with Zip files
+								</li>
+								<li>
+									<a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">
+										Flask
+									</a> - A web development platform for Python
+								</li>
+								<li>
+									<a href="https://www.sqlalchemy.org/" target="_blank">
+										SQLAlchemy
+									</a> - A Python SQL Toolkit and Object Relational Mapper
+								</li>
+							</ul>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h3> Installing and Managing Modules </h3>
+							<p> Here we will discuss installing modules and managing python environmnets </p>
+						</section>
+						<section>
+							<h3> <a href="https://pypi.org/project/pip/">Pip</a> - the official tool for installing Python Packages</h3>
+							<p> Pip provides a command line tool that allows you to automatically install python modules from PyPi
+								and other custom sources.
+							<h3><a href="https://pypi.org/">PyPi</a> - The Python Package Index</h3>
+							<p> The definitive source for canonical Python Modules.</p>
+							<asciinema-player src="https://cmu-ms-das-modern-programming-mini.github.io/IntroToPython/static/scripts/pip-install-2.json"
+							preload theme="solarized-dark" fonts-size="small" rows="30"></asciinema-player>
+						</section>
+
+						<section>
+							<h3> virtualenv - managing environments in Python </h3>
+							<ul>
+								<li>Every python program comes with a set of modules that it may need to run
+							  <li>One can define various environments with various python versions and modules version
+
+
 			</div>
 		</div>
 		<script src="dist/reveal.js"></script>
