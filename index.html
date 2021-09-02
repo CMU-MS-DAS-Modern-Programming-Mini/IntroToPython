@@ -25,28 +25,210 @@
 					<h4> Instructor: Shawn T. Brown </h4>
 				</section>
 				<section>
-					<h3> Python: </h3>
-					<ul class="r-fit-text">
-					 <li> is an interpreted high-level general-purpose programming language.
-					 <li> is an indented language that promotes highly readable programming.
-					 <li> supports both object-oriented programming and procedural progamming models.
-					 <li> has a massive community level of support with a plethora of modules to add a wide-array of functionality
-					 <li> the most widely used programming language (31.47% according to PYPL)
-					</ul>
-				</section>
-				<section>
-						<h3>Python in scientific programming</h3>
+					<section>
+						<h3> Python: </h3>
 						<ul class="r-fit-text">
-							<li> Python was widely thought to not be high-performance
-								<ul>
-									<li> modules such as Numpy, SciPy, and Pandas have ensured that Python is a high-performance language
-								</ul>
-							<li> Python is by far the language of choice for Artificial Intelligence applications
-								<ul>
-									<li> Frameworks such as TensorFlow, PyTorch, and Caffe are all Python frameworks
-								</ul>
-							<li> Most scientific applications and data frameworks, while maybe not written in Python provide robust Python interfaces for data and procedural workflows
+						 <li> is an interpreted high-level general-purpose programming language.
+						 <li> is an indented language that promotes highly readable programming.
+						 <li> supports both object-oriented programming and procedural progamming models.
+						 <li> has a massive community level of support with a plethora of modules to add a wide-array of functionality
+						 <li> the most widely used programming language (31.47% according to PYPL)
 						</ul>
+					</section>
+					<section>
+							<h3>Python in scientific programming</h3>
+							<ul class="r-fit-text">
+								<li> Python was widely thought to not be high-performance
+									<ul>
+										<li> modules such as Numpy, SciPy, and Pandas have ensured that Python is a high-performance language
+									</ul>
+								<li> Python is by far the language of choice for Artificial Intelligence applications
+									<ul>
+										<li> Frameworks such as TensorFlow, PyTorch, and Caffe are all Python frameworks
+									</ul>
+								<li> Most scientific applications and data frameworks, while maybe not written in Python provide robust Python interfaces for data and procedural workflows
+							</ul>
+					</section>
+					<section>
+						<h3> Brief Python Language Basics</h3>
+						<p> For those of you not familiar with Python, there are some excellent online tutorials
+							that you can use to catchup</p>
+							<ul>
+								<li> <a href="https://docs.python.org/3/tutorial/" target="_blank">
+									The Official "Python Tutorial
+								</a>
+								<li> <a href="https://www.learnpython.org/" target="_blank">
+									Interactive LearnPython.org tutorial
+								</a>
+								<li> <a href="https://python.readthedocs.io/en/latest/" target="_blank">
+									Python Language - Read the Docs </a>
+							</ul>
+					</section>
+					<section>
+						<h3> A simple python program </h3>
+						<pre class="python"><code data-line-numbers="2|15-16|20-24|28-31|35-39|4-8|43-46|48-49">
+import os
+
+def print_message_from_file(filename):
+    with open(filename, "r") as f:
+        message = f.read()
+        print("This is the message")
+        print("{}".format(message))
+
+def print_separator(n=45):
+    print("{}".format("".join(["-" for x in range(0,n)])))
+
+def main():
+
+    for i in range(0, 10):
+        print("Hello World!#{}".format(i))
+
+		print_separator()
+
+    sample_list = [0, 1, 2, 3, 4,
+                   5, 6, 7, 8, 9]
+
+    for i in sample_list:
+        print("Hello List!#{}".format(i))
+
+    print_separator()
+
+    sample_list_comp = [x for x in range(0,1)]
+
+    for i in sample_list:
+        print("Hello Comprehension!#{}".format(i))
+
+    print_separator()
+
+    sample_dictionary = {"english": "hat",
+                         "french": "chapeau"}
+
+    for k,v in sample_dictionary.items():
+        print("The word in {} is {}".format(k,v))
+
+    print_separator()
+
+    filename = os.path.join(os.getcwd(), "message.txt")
+    print("The File is at {}".format(filename))
+
+    print_message_from_file(filename)
+
+if __name__ == "__main__":
+    main()
+						</code></pre>
+						<p>
+							<small>
+								Available on GitHub:
+								<a href="https://github.com/CMU-MS-DAS-Modern-Programming-Mini/simple-python-example" target="_blank">
+									https://github.com/CMU-MS-DAS-Modern-Programming-Mini/simple-python-example
+								</a>
+							</small>
+						</p>
+					</section>
+					<section>
+						<h3>Classes and Object Oriented Python</h3>
+						<pre class="python"><code data-line-numbers="2|3-4|6-7|9-10|12-20">
+class Message:
+    def __init__(self, message_string):
+        self.message_string = message_string
+
+    def print_message(self):
+        print("This is the class message {}".format(self.message_string))
+
+    def __str__(self):
+        return "This is overriding the str class of the fuction: {}".format(self.message_string)
+
+    def __add__(self, msg):
+        if isinstance(msg, str):
+            r_msg = Message(self.message_string + msg)
+        elif isinstance(msg, Message):
+            r_msg = Message(self.message_string + msg.message_string)
+        else:
+            raise TypeError("Class Message does not know how to add" +
+                            "a variable of type {}".format(type(msg)))
+        return r_msg
+			</code></pre></small>
+					</section>
+					<section>
+						<h3>Classes and Object Oriented Python</h3>
+						<pre class="python"><code data-line-numbers="3|50-51|55|59-60|64-66|69-73">
+import os
+from message import Message
+
+def print_message_from_file(filename):
+    with open(filename, "r") as f_to_read:
+        message = f_to_read.read()
+        print("This is the message")
+        print("{}".format(message))
+
+def print_separator(num_chars=45):
+    print("{}".format("".join(["-" for x in range(0, num_chars)])))
+
+def main():
+    for i in range(0, 10):
+        print("Hello World!#{}".format(i))
+
+    sample_list = [0, 1, 2, 3, 4,
+                   5, 6, 7, 8, 9]
+
+    print_separator()
+
+    for i in sample_list:
+        print("Hello List!#{}".format(i))
+
+    print_separator()
+
+    sample_list_comp = [x for x in range(0, 1)]
+
+    for i in sample_list_comp:
+        print("Hello Comprehension!#{}".format(i))
+
+    print_separator()
+
+    sample_dictionary = {"english": "hat",
+                         "french": "chapeau"}
+
+    for k, val in sample_dictionary.items():
+        print("The word in {} is {}".format(k, val))
+
+    print_separator()
+
+    filename = os.path.join(os.getcwd(), "message.txt")
+    print("The File is at {}".format(filename))
+
+    print_message_from_file(filename)
+
+    print_separator()
+
+    msg = Message("... this is in class.")
+    msg.print_message()
+
+    print_separator()
+
+    print("{}".format(msg))
+
+    print_separator()
+
+    msg_add = msg + " | adding a string"
+    msg_add.print_message()
+
+    print_separator()
+
+    msg2 = Message("... adding a message class")
+    msg_add = msg + msg2
+    msg_add.print_message()
+
+    print_separator()
+    try:
+        num = 6.003432
+        msg_add = msg + num
+    except Exception as e_msg:
+        print("There was an exception {}".format(str(e_msg)))
+
+if __name__ == "__main__":
+    main()
+						</code></pre>
+					</section>
 				</section>
 				<section>
 					<section>
@@ -354,7 +536,7 @@
 							<p> Here we will discuss installing modules and managing python environmnets </p>
 						</section>
 						<section>
-							<h3> <a href="https://pypi.org/project/pip/">Pip</a> - the official tool for installing Python Packages</h3>
+							<h3> <a href="https://pypi.org/project/pip/"  target="_blank">Pip</a> - the official tool for installing Python Packages</h3>
 							<p class="r-fit-text"> Pip provides a command line tool that allows you to automatically install python modules from PyPi
 								and other custom sources.
 							<!--<h3><a href="https://pypi.org/">PyPi</a> - The Python Package Index</h3>
@@ -363,7 +545,7 @@
 							preload theme="solarized-dark" fonts-size="small" rows="30"></asciinema-player>
 						</section>
 						<section>
-							<h3> <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>
+							<h3> <a href="https://virtualenv.pypa.io/en/latest/"  target="_blank">virtualenv</a>
 								 - managing environments in Python </h3>
 							<ul class="r-fit-text">
 								<li>Every python program comes with a set of modules that it may need to run
@@ -373,19 +555,19 @@
 						</section>
 						<section>
 							<asciinema-player src="https://cmu-ms-das-modern-programming-mini.github.io/IntroToPython/static/scripts/virtualenv.json"
-							preload theme="solarized-dark" fonts-size="small" rows="50"></asciinema-player>
+							preload theme="solarized-dark" fonts-size="small" rows="40"></asciinema-player>
 						</section>
 						<section>
 							<h3> Exporting your environment with Pip </h3>
 							<p class="r-fit-text"> You can actually export your environment and module requirements to a file
 								so that when someone else downloads the package, they can immediately install necessary modules </p>
 								<asciinema-player src="https://cmu-ms-das-modern-programming-mini.github.io/IntroToPython/static/scripts/freeze.json"
-								preload theme="solarized-dark" fonts-size="small" rows="50"></asciinema-player>
+								preload theme="solarized-dark" fonts-size="small" rows="25"></asciinema-player>
 						</section>
 						<section>
 							<h3>Anaconda Python</h3>
 							<p class="r-fit-text">
-								<a href="https://docs.conda.io/projects/conda/en/latest/index.html>conda</a> - an open source environment
+								<a href="https://docs.conda.io/projects/conda/en/latest/index.html"  target="_blank">conda</a> - an open source environment
 								management system designed to work with Anaconda.
 							</p>
 							<p> <a href="https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf"
@@ -397,10 +579,92 @@
 						</section>
 						<section>
 							<asciinema-player src="https://cmu-ms-das-modern-programming-mini.github.io/IntroToPython/static/scripts/conda-create.json"
-							preload theme="solarized-dark" fonts-size="small" rows="60"></asciinema-player>	
+							preload theme="solarized-dark" fonts-size="small" rows="40"></asciinema-player>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h3>Documenting your Python Code </h3>
+							<p>Documenting your code is crucial to others understanding it (and frankly you remembering what you did)</p>
+						</section>
+						<section>
+							<h3> Some useful documentation systems with Python </h3>
+							<ul class="r-fit-text">
+								<li><a href="https://www.sphinx-doc.org/en/master/" target="_blank">Sphinx</a> - automatically generates documentation for Python projects
+								<li><a href="https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html"  target="_blank"> Getting Started with Shinx </a>
+									A great guide Read The Docs which allows you to host your Sphinx documentation.
+								<li><a href="https://www.doxygen.nl/index.html"  target="_blank">Doxygen</a> - Generates class documentaiton from Python (also C,C++,Java, etc.)
+									<a href="https://www.doxygen.nl/manual/docblocks.html#pythonblocks"  target="_blank">Example Comments</a>
+									/ <a href="https://freecad.github.io/SourceDoc/index.html"  target="_blank">FreeCAD Example</a>
+								<li><a href="https://www.mkdocs.org/"  target="_blank">MkDocs</a> - Markdown based project documentation
+							</ul>
+						</section>
+						<section>
+							<h3>DocStrings</h3>
+							<ul class="r-fit-text">
+								<li>A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition.
+								<li>Such a docstring becomes the __doc__ special attribute of that object.
+								<li>DocStrings are technically free format, but many packages can automatically generate documentation from them
+							</ul>
+						</section>
+						<section>
+						<p>In our previous example:</p>
+							<pre class="python"><code>
+	import os
 
+	def print_message_from_file(filename):
+		"""
+		Prints a message from contents for a
 
+			Arguments:
+				filename - A string giving the name of the files
+				           that is in the current directory
 
+			Returns:
+			  Returns no value, prints the message to stdout
+		"""
+
+			with open(filename, "r") as f:
+					message = f.read()
+					print("This is the message")
+					print("{}".format(message))
+		 ...
+							</code></pre>
+							<small><p>Let's look at the rest of the code
+								<a href="https://github.com/CMU-MS-DAS-Modern-Programming-Mini/simple-python-example/blob/step-3/message.py"
+								target="_blank">
+								here</a></p></small>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h3> Python Coding Standards </h3>
+							<ul class="r-fit-text">
+								<li><a href="https://www.python.org/dev/peps/pep-0008/#introduction" target="_blank">
+									The PEP 8 -- Style Guide for Python Code
+								</a>
+								<li> Adopted by Guido and the Python core team to provide consistency in programming styles
+								<li> The style guide provides a number of rules and best practices that have been developed
+									   over time to make readable
+								<li> Very important in a team development setting to provide consistency
+								<li> Augment with team agreed upon guidelines
+							</ul>
+						</section>
+						<section>
+							<h3> <a href="https://pylint.org/" target="_blank">
+								PyLint</a> - A tool for ensuring code adheres to code standards</h3>
+								<ul class="r-fit-text">
+								 	<li> Command line to provides a report on compiance with Pep8
+									<li> Can be added to continuous inegration to automatically test all code
+									<li> Sometimes gives suggestions that can be ignored
+								</ul>
+						</section>
+						<section>
+							<h3> <a href="https://pylint.org/" target="_blank">
+								PyLint</a> - A tool for ensuring code adheres to code standards</h3>
+							<asciinema-player src="https://cmu-ms-das-modern-programming-mini.github.io/IntroToPython/static/scripts/pylint.json"
+								preload theme="solarized-dark" fonts-size="small" rows="40"></asciinema-player>
+					</section>
 			</div>
 		</div>
 		<script src="dist/reveal.js"></script>
